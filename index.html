@@ -420,11 +420,23 @@
     .quote::before {
       content: '"';
       position: absolute;
-      top: -10px;
-      left: 15px;
+      top: -8px;
+      left: 1px;
       font-size: 4rem;
       color: var(--primary-color);
-      opacity: 0.2;
+      opacity: 0.25;
+    }
+
+    /* Closing quote */
+    .quote::after {
+      content: '"';
+      /* typographic right quote */
+      position: absolute;
+      bottom: -30px;
+      right: 50px;
+      font-size: 4rem;
+      color: var(--primary-color);
+      opacity: 0.25;
     }
 
     /* Skills Section */
@@ -488,7 +500,8 @@
     .progress-bar {
       height: 100%;
       background: linear-gradient(90deg, var(--primary-color), #87ceeb);
-      color: white;
+      color: transparent !important;
+      text-shadow: none !important;
       font-size: 0.85rem;
       font-weight: 600;
       display: flex;
@@ -1032,7 +1045,7 @@
                 <i class="fab fa-python skill-icon"></i> Python (Pandas, NumPy, Scikit-learn)
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="85">85%</div>
+                <div class="progress-bar" data-progress="70" aria-hidden="true"></div>
               </div>
             </li>
             <li>
@@ -1040,7 +1053,7 @@
                 <i class="fas fa-database skill-icon"></i> SQL (MySQL, BigQuery)
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="80">80%</div>
+                <div class="progress-bar" data-progress="75" aria-hidden="true"></div>
               </div>
             </li>
             <li>
@@ -1048,7 +1061,7 @@
                 <i class="fas fa-chart-bar skill-icon"></i> Power BI & Tableau
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="75">75%</div>
+                <div class="progress-bar" data-progress="65" aria-hidden="true"></div>
               </div>
             </li>
             <li>
@@ -1056,7 +1069,7 @@
                 <i class="fas fa-robot skill-icon"></i> Machine Learning
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="70">70%</div>
+                <div class="progress-bar" data-progress="50" aria-hidden="true"></div>
               </div>
             </li>
             <li>
@@ -1064,7 +1077,7 @@
                 <i class="fas fa-brain skill-icon"></i> Deep Learning (TensorFlow)
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="60">60%</div>
+                <div class="progress-bar" data-progress="50" aria-hidden="true"></div>
               </div>
             </li>
           </ul>
@@ -1078,7 +1091,7 @@
                 <i class="fab fa-html5 skill-icon"></i> HTML/CSS
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="90">90%</div>
+                <div class="progress-bar" data-progress="70" aria-hidden="true"></div>
               </div>
             </li>
             <li>
@@ -1086,7 +1099,7 @@
                 <i class="fab fa-js skill-icon"></i> JavaScript
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="75">75%</div>
+                <div class="progress-bar" data-progress="60" aria-hidden="true"></div>
               </div>
             </li>
             <li>
@@ -1094,7 +1107,7 @@
                 <i class="fab fa-react skill-icon"></i> React
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="60">60%</div>
+                <div class="progress-bar" data-progress="50" aria-hidden="true"></div>
               </div>
             </li>
             <li>
@@ -1102,7 +1115,7 @@
                 <i class="fas fa-desktop skill-icon"></i> Tkinter (Python GUI)
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="70">70%</div>
+                <div class="progress-bar" data-progress="70" aria-hidden="true"></div>
               </div>
             </li>
             <li>
@@ -1110,7 +1123,7 @@
                 <i class="fab fa-git-alt skill-icon"></i> Git & GitHub
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="80">80%</div>
+                <div class="progress-bar" data-progress="80" aria-hidden="true"></div>
               </div>
             </li>
           </ul>
@@ -1229,6 +1242,46 @@
             </div>
           </div>
         </div>
+
+        <!-- 📊 R Shiny – Drug & Psychology Dashboard -->
+        <div class="project-card">
+          <div class="project-image"><i class="fas fa-brain"></i></div>
+          <div class="project-content">
+            <h3 class="project-title">Rshiny – Analyse Drogues & Psychologie</h3>
+            <p class="project-tech">R, Shiny, ggplot2, plotly</p>
+            <p class="project-description">
+              Dashboard interactif (UCI Drug Consumption) pour explorer les liens entre traits de
+              personnalité,
+              consommation de substances et facteurs démographiques. Filtres dynamiques, viz interactives
+              et export CSV.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/RomainJazzar/Rshiny_Datasets_Drugs_Psychology" target="_blank"
+                class="project-link">
+                <i class="fab fa-github"></i> Code source
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🌸 Bonatica-iris (EDA) -->
+        <div class="project-card">
+          <div class="project-image"><i class="fas fa-seedling"></i></div>
+          <div class="project-content">
+            <h3 class="project-title">Bonatica-iris — EDA & PCA</h3>
+            <p class="project-tech">R, RMarkdown, PCA, K-means</p>
+            <p class="project-description">
+              Analyse exploratoire complète du dataset Iris : stats, heatmap de corrélations, PCA,
+              clustering K-means
+              et interprétation visuelle/technique des résultats.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/RomainJazzar/Bonatica-iris" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> Code source
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1329,6 +1382,7 @@
           navProjects: "Projets",
           navCV: "CV",
           navContact: "Contact",
+          navExperience: "Expérience",
           heroName: "Romain Jazzar",
           heroTagline: "Passionné d'IA & Data | Analyste de Données Junior | Recherche alternance 24 mois",
           heroSkillsPrefix: "Compétences clés :",
@@ -1337,7 +1391,7 @@
           aboutTitle: "À Propos de Moi",
           aboutP1: "Suite à une première expérience en développement web full-stack, je me réoriente passionnément vers l'Intelligence Artificielle et la Data Science. Actuellement en première année de Bachelor IA à La Plateforme Marseille, je développe des compétences solides en Python, SQL, analyse de données et machine learning.",
           aboutP2: "Mon objectif est de fusionner ma logique de développeur avec la puissance de l'analyse de données pour construire des solutions intelligentes et contribuer à des projets ayant un impact réel.",
-          aboutQuote: "  Je crois au potentiel des données pour éclairer les décisions et transformer les processus. Mon ambition est de maîtriser ces outils pour devenir un acteur clé de cette transformation.  ",
+          aboutQuote: "Je crois au potentiel des données pour éclairer les décisions et transformer les processus. Mon ambition est de maîtriser ces outils pour devenir un acteur clé de cette transformation.",
           aboutP3: "Je suis à la recherche active d'une <strong>alternance de 24 mois en IA ou Data</strong> (Analyst, Scientist, Engineer) à partir de <strong>Septembre 2025</strong> pour mettre en pratique mes connaissances et m'investir pleinement dans un environnement professionnel stimulant.",
           skillsTitle: "Compétences Techniques",
           skillsDataAiTitle: "Data & AI",
@@ -1358,6 +1412,7 @@
           navProjects: "Projects",
           navCV: "Resume",
           navContact: "Contact",
+          navExperience: "Experience",
           heroName: "Romain Jazzar",
           heroTagline: "AI & Data Enthusiast | Junior Data Analyst | Seeking 24-month work-study program",
           heroSkillsPrefix: "Key skills:",
