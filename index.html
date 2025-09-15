@@ -5,35 +5,950 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Portfolio de Romain Jazzar, étudiant en IA et Data Science, anciennement développeur web. Recherche une alternance de 24 mois à partir de Septembre 2025." />
-  <title data-lang="pageTitle">Romain Jazzar | Portfolio AI & Data</title>
+    content="Portfolio de Romain Jazzar — Alternance Data / BI / IA (Bouches-du-Rhône). Python, SQL, Power BI, Machine Learning. Projets concrets, CV, contact." />
+  <meta name="keywords"
+    content="data analyst, business intelligence, IA, alternance, marseille, python, sql, power bi" />
+  <meta name="author" content="Romain Jazzar" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <title>Romain Jazzar | Portfolio Data & IA - Alternance 24 mois</title>
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css" />
-
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* --- CSS intégré pour la démo --- */
+    :root {
+      --primary-color-light: #007bff;
+      --secondary-color-light: #6c757d;
+      --background-light: #f8f9fa;
+      --text-light: #212529;
+      --card-bg-light: #ffffff;
+      --border-light: #dee2e6;
+      --accent-light: #e9ecef;
+      --success-color: #28a745;
+
+      --primary-color-dark: #4dabf7;
+      --secondary-color-dark: #adb5bd;
+      --background-dark: #121212;
+      --text-dark: #e0e0e0;
+      --card-bg-dark: #1e1e1e;
+      --border-dark: #333;
+      --accent-dark: #2c2c2c;
+
+      --primary-color: var(--primary-color-light);
+      --secondary-color: var(--secondary-color-light);
+      --background-color: var(--background-light);
+      --text-color: var(--text-light);
+      --card-bg: var(--card-bg-light);
+      --border-color: var(--border-light);
+      --accent-color: var(--accent-light);
+
+      --font-family: 'Inter', sans-serif;
+      --transition-speed: 0.3s;
+      --max-width: 1200px;
+      --header-height: 70px;
+      --border-radius: 12px;
+      --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.3);
+      --shadow: var(--shadow-light);
+    }
+
+    body.dark-mode {
+      --primary-color: var(--primary-color-dark);
+      --secondary-color: var(--secondary-color-dark);
+      --background-color: var(--background-dark);
+      --text-color: var(--text-dark);
+      --card-bg: var(--card-bg-dark);
+      --border-color: var(--border-dark);
+      --accent-color: var(--accent-dark);
+      --shadow: var(--shadow-dark);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      padding-top: var(--header-height);
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    }
+
+    /* Header */
+    #main-header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      z-index: 1000;
+      transition: all var(--transition-speed) ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    body.dark-mode #main-header {
+      background-color: rgba(30, 30, 30, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo a {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary-color), #87ceeb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--text-color);
+      padding: 0.5rem 0;
+      position: relative;
+      text-decoration: none;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-color), #87ceeb);
+      transition: width var(--transition-speed) ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-toggles {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    #lang-toggle,
+    #theme-toggle {
+      background: var(--accent-color);
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-speed) ease;
+    }
+
+    #lang-toggle:hover,
+    #theme-toggle:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    #mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Scroll Indicator */
+    #scroll-indicator {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), #87ceeb);
+      z-index: 1001;
+      transition: width 0.1s linear;
+    }
+
+    /* Main Content */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), #87ceeb);
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition-speed) ease;
+      margin: 0.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color), #4a90e2);
+      color: white;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      padding: 6rem 1rem;
+      min-height: calc(90vh - var(--header-height));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(135, 206, 235, 0.05));
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+      animation: pulse 15s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 400;
+      color: var(--secondary-color);
+      margin-bottom: 2rem;
+    }
+
+    .typewriter-container {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      min-height: 2em;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+    }
+
+    #typewriter-text {
+      font-weight: 600;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.3rem;
+      background-color: var(--primary-color);
+      animation: blink 1s infinite;
+      margin-left: 5px;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* About Section */
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .quote {
+      font-style: italic;
+      margin: 3rem auto;
+      padding: 1.5rem 2rem;
+      border-left: 4px solid var(--primary-color);
+      background: linear-gradient(135deg, var(--accent-color), rgba(0, 123, 255, 0.05));
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      max-width: 800px;
+      position: relative;
+    }
+
+    .quote::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 15px;
+      font-size: 4rem;
+      color: var(--primary-color);
+      opacity: 0.2;
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .skills-column {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .skills-column:hover {
+      transform: translateY(-5px);
+    }
+
+    .skills-column h3 {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    .skills-list {
+      list-style: none;
+    }
+
+    .skills-list li {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-name {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-icon {
+      color: var(--primary-color);
+      width: 25px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      background-color: var(--accent-color);
+      border-radius: 20px;
+      overflow: hidden;
+      height: 22px;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-color), #87ceeb);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      border-radius: 20px;
+      width: 0;
+      transition: width 1.5s ease-out;
+    }
+
+    .progress-bar.animate {
+      animation: fillProgress 1.5s ease-out forwards;
+    }
+
+    /* Experience Section */
+    .experience-timeline {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary-color), #87ceeb);
+    }
+
+    .experience-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      width: calc(50% - 30px);
+      opacity: 0;
+      transform: translateX(-30px);
+      animation: slideIn 0.6s forwards;
+    }
+
+    .experience-item:nth-child(even) {
+      margin-left: auto;
+      transform: translateX(30px);
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      border: 4px solid var(--card-bg);
+      box-shadow: 0 0 0 2px var(--primary-color);
+    }
+
+    .experience-item:nth-child(odd)::before {
+      right: -40px;
+    }
+
+    .experience-item:nth-child(even)::before {
+      left: -40px;
+    }
+
+    .experience-date {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-title {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-company {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* Certifications Section */
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .certification-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all var(--transition-speed) ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .certification-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), #87ceeb);
+    }
+
+    .certification-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .certification-badge {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .certification-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .certification-issuer {
+      color: var(--secondary-color);
+      font-size: 0.9rem;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all var(--transition-speed) ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--accent-color), rgba(0, 123, 255, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--primary-color);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+
+    .project-tech {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .project-description {
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .project-link:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateX(3px);
+    }
+
+    /* CV Section */
+    .cv-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cv-preview-container {
+      margin: 2rem auto;
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      height: 600px;
+      box-shadow: var(--shadow);
+      background: var(--card-bg);
+    }
+
+    #cv-preview {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-intro {
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      color: var(--secondary-color);
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1.2rem;
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      transition: all var(--transition-speed) ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .contact-btn:hover::before {
+      left: 100%;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-btn i {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, var(--card-bg), rgba(0, 123, 255, 0.05));
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      margin-top: 2rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
+      background: linear-gradient(135deg, var(--accent-color), rgba(0, 123, 255, 0.05));
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Floating Buttons */
+    #scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, var(--primary-color), #87ceeb);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-speed) ease;
+    }
+
+    #scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #scroll-to-top:hover {
+      transform: scale(1.1) translateY(-3px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--card-bg);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      #mobile-nav-toggle {
+        display: block;
+      }
+
+      .experience-timeline::before {
+        left: 30px;
+      }
+
+      .experience-item {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
+      }
+
+      .experience-item::before {
+        left: -40px !important;
+      }
+
+      .skills-container,
+      .projects-grid,
+      .certifications-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 1rem;
+      }
+
+      section {
+        padding: 2rem 0;
+      }
+
+      .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Scroll Indicator Bar -->
+  <!-- Scroll Indicator -->
   <div id="scroll-indicator"></div>
 
+  <!-- Header -->
   <header id="main-header">
     <nav>
       <div class="logo">
-        <a href="#hero" data-lang="navLogo">RomainJazzar Portfolio</a>
+        <a href="#hero">Romain Jazzar</a>
       </div>
       <ul class="nav-links">
         <li><a href="#about" data-lang="navAbout">À Propos</a></li>
         <li><a href="#skills" data-lang="navSkills">Compétences</a></li>
+        <li><a href="#experience" data-lang="navExperience">Expérience</a></li>
+        <li><a href="#certifications" data-lang="navCertifications">Certifications</a></li>
         <li><a href="#projects" data-lang="navProjects">Projets</a></li>
         <li><a href="#cv" data-lang="navCV">CV</a></li>
         <li><a href="#contact" data-lang="navContact">Contact</a></li>
@@ -41,11 +956,11 @@
       <div class="nav-toggles">
         <!-- Language Toggle -->
         <button id="lang-toggle" aria-label="Changer la langue">
-          <span class="flag-icon">🇫🇷</span>
+          <span>🇫🇷</span>
         </button>
         <!-- Theme Toggle -->
-        <button id="theme-toggle" aria-label="Basculer le thème sombre/clair">
-          <i class="fa-solid fa-moon"></i>
+        <button id="theme-toggle" aria-label="Basculer le thème">
+          <i class="fas fa-moon"></i>
         </button>
       </div>
       <button id="mobile-nav-toggle" aria-label="Toggle navigation">
@@ -56,50 +971,56 @@
 
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="main-section">
+    <section id="hero">
       <div class="hero-content">
         <h1 data-lang="heroName">Romain Jazzar</h1>
         <h2 data-lang="heroTagline">
-          Passionné d'IA & Data | Analyste de Données Junior & Développeur Full Stack
+          Passionné d'IA & Data | Analyste de Données Junior | Recherche alternance 24 mois
         </h2>
-        <p class="typewriter-container">
+        <div class="typewriter-container">
           <span data-lang="heroSkillsPrefix">Compétences clés :</span>
           <span id="typewriter-text"></span><span class="cursor">|</span>
-        </p>
+        </div>
         <div class="hero-buttons">
-          <!-- CV Download Link -->
-          <a href="assets/CV_RomainJazzar_Final.pdf" target="_blank" download="cv_romainjazzar_2025.pdf"
+          <a href="assets/CV_RomainJazzar_Final.pdf" target="_blank" download="CV_RomainJazzar.pdf"
             class="btn btn-primary" data-lang="heroCvButton">
-            Télécharger le CV
+            <i class="fas fa-download"></i> Télécharger le CV
           </a>
           <a href="#contact" class="btn btn-secondary" data-lang="heroContactButton">
-            Me Contacter
+            <i class="fas fa-envelope"></i> Me Contacter
           </a>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="main-section">
+    <section id="about">
       <h2 data-lang="aboutTitle">À Propos de Moi</h2>
       <div class="about-content">
         <p data-lang="aboutP1">
-          Suite à une première expérience en développement web full-stack...
+          Suite à une première expérience en développement web full-stack, je me réoriente passionnément vers
+          l'Intelligence Artificielle et la Data Science. Actuellement en première année de Bachelor IA à
+          La Plateforme Marseille, je développe des compétences solides en Python, SQL, analyse de données
+          et machine learning.
         </p>
         <p data-lang="aboutP2">
-          Mon objectif est de fusionner ma logique...
+          Mon objectif est de fusionner ma logique de développeur avec la puissance de l'analyse de données
+          pour construire des solutions intelligentes et contribuer à des projets ayant un impact réel.
         </p>
         <p class="quote" data-lang="aboutQuote">
-          "Je crois au potentiel des données..."
+          Je crois au potentiel des données pour éclairer les décisions et transformer les processus.
+          Mon ambition est de maîtriser ces outils pour devenir un acteur clé de cette transformation.
         </p>
         <p data-lang="aboutP3">
-          Je suis à la recherche active d'une <strong>alternance...</strong>
+          Je suis à la recherche active d'une <strong>alternance de 24 mois en IA ou Data</strong>
+          (Analyst, Scientist, Engineer) à partir de <strong>Septembre 2025</strong> pour mettre en pratique
+          mes connaissances et m'investir pleinement dans un environnement professionnel stimulant.
         </p>
       </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="main-section">
+    <section id="skills">
       <h2 data-lang="skillsTitle">Compétences Techniques</h2>
       <div class="skills-container">
         <!-- Data & AI Column -->
@@ -108,12 +1029,10 @@
           <ul class="skills-list">
             <li>
               <span class="skill-name">
-                <i class="fab fa-python skill-icon"></i> Python (Pandas, NumPy)
+                <i class="fab fa-python skill-icon"></i> Python (Pandas, NumPy, Scikit-learn)
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 85%;">
-                  85%
-                </div>
+                <div class="progress-bar" data-progress="85">85%</div>
               </div>
             </li>
             <li>
@@ -121,29 +1040,31 @@
                 <i class="fas fa-database skill-icon"></i> SQL (MySQL, BigQuery)
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 80%;">
-                  80%
-                </div>
+                <div class="progress-bar" data-progress="80">80%</div>
               </div>
             </li>
             <li>
               <span class="skill-name">
-                <i class="fas fa-chart-bar skill-icon"></i> Power BI
+                <i class="fas fa-chart-bar skill-icon"></i> Power BI & Tableau
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 75%;">
-                  75%
-                </div>
+                <div class="progress-bar" data-progress="75">75%</div>
               </div>
             </li>
             <li>
               <span class="skill-name">
-                <i class="fas fa-cogs skill-icon"></i> Machine Learning (Concepts)
+                <i class="fas fa-robot skill-icon"></i> Machine Learning
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 70%;">
-                  70%
-                </div>
+                <div class="progress-bar" data-progress="70">70%</div>
+              </div>
+            </li>
+            <li>
+              <span class="skill-name">
+                <i class="fas fa-brain skill-icon"></i> Deep Learning (TensorFlow)
+              </span>
+              <div class="progress-bar-container">
+                <div class="progress-bar" data-progress="60">60%</div>
               </div>
             </li>
           </ul>
@@ -154,22 +1075,10 @@
           <ul class="skills-list">
             <li>
               <span class="skill-name">
-                <i class="fab fa-html5 skill-icon"></i> HTML
+                <i class="fab fa-html5 skill-icon"></i> HTML/CSS
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar dev-bar" style="width: 90%;">
-                  90%
-                </div>
-              </div>
-            </li>
-            <li>
-              <span class="skill-name">
-                <i class="fab fa-css3-alt skill-icon"></i> CSS
-              </span>
-              <div class="progress-bar-container">
-                <div class="progress-bar dev-bar" style="width: 85%;">
-                  85%
-                </div>
+                <div class="progress-bar" data-progress="90">90%</div>
               </div>
             </li>
             <li>
@@ -177,19 +1086,15 @@
                 <i class="fab fa-js skill-icon"></i> JavaScript
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar dev-bar" style="width: 70%;">
-                  70%
-                </div>
+                <div class="progress-bar" data-progress="75">75%</div>
               </div>
             </li>
             <li>
               <span class="skill-name">
-                <i class="fab fa-react skill-icon"></i> React (Basics)
+                <i class="fab fa-react skill-icon"></i> React
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar dev-bar" style="width: 55%;">
-                  55%
-                </div>
+                <div class="progress-bar" data-progress="60">60%</div>
               </div>
             </li>
             <li>
@@ -197,19 +1102,15 @@
                 <i class="fas fa-desktop skill-icon"></i> Tkinter (Python GUI)
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar dev-bar" style="width: 65%;">
-                  65%
-                </div>
+                <div class="progress-bar" data-progress="70">70%</div>
               </div>
             </li>
             <li>
               <span class="skill-name">
-                <i class="fas fa-database skill-icon"></i> MySQL
+                <i class="fab fa-git-alt skill-icon"></i> Git & GitHub
               </span>
               <div class="progress-bar-container">
-                <div class="progress-bar dev-bar" style="width: 75%;">
-                  75%
-                </div>
+                <div class="progress-bar" data-progress="80">80%</div>
               </div>
             </li>
           </ul>
@@ -217,164 +1118,464 @@
       </div>
     </section>
 
+    <!-- Experience Section -->
+
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <h2 data-lang="certificationsTitle">Certifications</h2>
+      <div class="certifications-grid">
+        <div class="certification-card">
+          <div class="certification-badge">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3 class="certification-title">Google Data Analytics Professional Certificate</h3>
+          <p class="certification-issuer">Google via Coursera - 2025</p>
+        </div>
+        <div class="certification-card">
+          <div class="certification-badge">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3 class="certification-title">Google Business Intelligence Professional Certificate</h3>
+          <p class="certification-issuer">Google via Coursera - 2025</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Projects Section -->
-    <section id="projects" class="main-section">
+    <section id="projects">
       <h2 data-lang="projectsTitle">Projets Techniques</h2>
-      <div class="projects-container">
-        <!-- Project 1 Card -->
+      <div class="projects-grid">
+        <!-- Budget Buddy -->
         <div class="project-card">
-          <h3 data-lang="project1Title">Budget Buddy App</h3>
-          <p class="tech-stack">Python, Tkinter, MySQL, CSV Export</p>
-          <p data-lang="project1Desc">
-            Application de bureau pour suivre les dépenses personnelles, avec
-            stockage en base de données et fonctionnalité d'export CSV.
-          </p>
-          <!-- Optional GitHub link -->
-          <a class="github-link" href="https://github.com/YourGithub/BudgetBuddyApp" target="_blank"
-            rel="noopener noreferrer">
-            <i class="fab fa-github"></i> Voir le code
-          </a>
+          <div class="project-image">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Budget Buddy</h3>
+            <p class="project-tech">Python, Tkinter, MySQL, CSV Export</p>
+            <p class="project-description">
+              Application complète de gestion budgétaire et suivi des stocks avec alertes intelligentes,
+              visualisation dynamique et tableau de bord SQL/Power BI. Architecture POO avec interface
+              graphique intuitive.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/RomainJazzar/BudgetBuddy" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> Code source
+              </a>
+            </div>
+          </div>
         </div>
-        <!-- Project 2 Card -->
+
+        <!-- Netflix Insights -->
         <div class="project-card">
-          <h3 data-lang="project2Title">Google Data Analytics Capstone</h3>
-          <p class="tech-stack">Google BigQuery, SQL, Tableau / Power BI</p>
-          <p data-lang="project2Desc">
-            Analyse complète réalisée dans le cadre de la certification
-            Google Data Analytics, incluant la collecte, transformation (SQL),
-            et visualisation de données pour répondre à une problématique
-            business.
-          </p>
-          <!-- Optional GitHub link -->
-          <a class="github-link" href="https://github.com/YourGithub/GoogleDataAnalyticsCapstone" target="_blank"
-            rel="noopener noreferrer">
-            <i class="fab fa-github"></i> Voir le code
-          </a>
+          <div class="project-image">
+            <i class="fas fa-film"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Netflix Insights</h3>
+            <p class="project-tech">Python, Pandas, Power BI</p>
+            <p class="project-description">
+              Analyse approfondie du dataset Netflix avec création de dashboards interactifs.
+              Identification de tendances de consommation, recommandations basées sur les données
+              et visualisations avancées.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/RomainJazzar/NetflixInsights" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> Code source
+              </a>
+            </div>
+          </div>
         </div>
-        <!-- Project 3 Card -->
+
+        <!-- Dr Death Analysis -->
         <div class="project-card">
-          <h3 data-lang="project3Title">LinkedIn AI Bot (Prototype)</h3>
-          <p class="tech-stack">Python, Selenium, API ChatGPT</p>
-          <p data-lang="project3Desc">
-            Prototype d'automatisation locale utilisant Selenium et l'API
-            ChatGPT pour explorer la génération de contenu ou d'interactions
-            sur LinkedIn (Non destiné à la production).
-          </p>
-          <!-- Optional GitHub link -->
-          <a class="github-link" href="https://github.com/YourGithub/LinkedInAIBot" target="_blank"
-            rel="noopener noreferrer">
-            <i class="fab fa-github"></i> Voir le code
-          </a>
+          <div class="project-image">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Dr Death - Analyse Criminelle</h3>
+            <p class="project-tech">Power BI, Power Query, Data Journalism</p>
+            <p class="project-description">
+              Dashboard interactif analysant les données du tueur en série Harold Shipman.
+              Visualisation de schémas temporels et corrélations comportementales pour
+              le data journalisme d'investigation.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/RomainJazzar/DrDeathAnalysis" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> Code source
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google BI Dashboard -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Google BI Dashboard</h3>
+            <p class="project-tech">BigQuery, SQL, Power BI, Data Studio</p>
+            <p class="project-description">
+              Tableaux de bord e-commerce avec exploitation de données BigQuery.
+              Transformation SQL avancée, KPIs marketing et rapports interactifs
+              pour la prise de décision business.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/RomainJazzar/GoogleBIDashboard" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> Code source
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CV Section -->
-    <section id="cv" class="main-section">
+    <section id="cv">
       <h2 data-lang="cvTitle">Mon CV</h2>
-      <p data-lang="cvDesc">
-        Consultez mon parcours détaillé et mes expériences.
-        Vous pouvez prévisualiser le CV ci-dessous ou le télécharger directement.
-      </p>
-
-      <div class="cv-preview-container">
-        <iframe id="cv-preview" src="assets/CV_RomainJazzar_Final.pdf" title="Aperçu du CV de Romain Jazzar"
-          loading="lazy">
-          <p data-lang="cvPreviewError">
-            Votre navigateur ne supporte pas les iFrames.
-            Vous pouvez
-            <a href="assets/CV_RomainJazzar_Final.pdf" target="_blank">télécharger le CV ici</a>.
-          </p>
-        </iframe>
+      <div class="cv-container">
+        <p data-lang="cvDesc">
+          Consultez mon parcours détaillé et mes expériences.
+          Vous pouvez prévisualiser le CV ci-dessous ou le télécharger directement.
+        </p>
+        <div class="cv-preview-container">
+          <iframe id="cv-preview" src="assets/CV_RomainJazzar_Final.pdf" title="CV de Romain Jazzar" loading="lazy">
+            <p>Votre navigateur ne supporte pas les iFrames.
+              <a href="assets/CV_RomainJazzar_Final.pdf" target="_blank">Télécharger le CV ici</a>.
+            </p>
+          </iframe>
+        </div>
+        <a href="assets/CV_RomainJazzar_Final.pdf" target="_blank" download="CV_RomainJazzar.pdf"
+          class="btn btn-primary">
+          <i class="fas fa-download"></i>
+          <span data-lang="cvDownloadButton">Télécharger le CV (PDF)</span>
+        </a>
       </div>
-
-      <a href="assets/cv_romainjazzar_2025.pdf" target="_blank" download="cv_romainjazzar_2025.pdf"
-        class="btn btn-primary cv-download-btn">
-        <i class="fas fa-download"></i>
-        <span data-lang="cvDownloadButton">Télécharger le CV</span>
-      </a>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="main-section">
+    <section id="contact">
       <h2 data-lang="contactTitle">Contactez-moi</h2>
+      <div class="contact-container">
+        <p class="contact-intro" data-lang="contactIntro">
+          Je suis disponible pour discuter d'opportunités d'alternance en Data/BI/IA.
+          N'hésitez pas à me contacter via l'un des moyens ci-dessous.
+        </p>
 
-      <div class="contact-details">
-        <p data-lang="contactPromptDirect">
-          N'hésitez pas à me joindre directement :
-        </p>
-        <p>
-          <i class="fas fa-envelope"></i>
-          Email:
-          <a href="mailto:romain.jazzar@laplateforme.io" data-lang="contactEmailValue1">
-            romain.jazzar@laplateforme.io
+        <div class="contact-buttons">
+          <a href="mailto:romain.jazzar@laplateforme.io" class="contact-btn">
+            <i class="fas fa-envelope"></i>
+            <span>Email Pro</span>
           </a>
-        </p>
-        <p>
-          <i class="fas fa-envelope-open-text"></i>
-          Email Perso:
-          <a href="mailto:roman.jazzar@outlook.com" data-lang="contactEmailValue2">
-            roman.jazzar@outlook.com
+          <a href="tel:+33771026964" class="contact-btn">
+            <i class="fas fa-phone"></i>
+            <span>07 71 02 69 64</span>
           </a>
-        </p>
-        <p>
-          <i class="fas fa-phone"></i>
-          Tel:
-          <a href="tel:+33771026964" data-lang="contactPhoneValue">07 71 02 69 64</a>
-        </p>
-        <div class="social-links-contact">
-          <a href="https://www.linkedin.com/in/romainjazzar" target="_blank" rel="noopener noreferrer"
-            aria-label="LinkedIn Profile">
-            <i class="fab fa-linkedin"></i> LinkedIn
+          <a href="https://www.linkedin.com/in/romainjazzar/" target="_blank" class="contact-btn">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
           </a>
-          <a href="https://github.com/RomainJazzar" target="_blank" rel="noopener noreferrer"
-            aria-label="GitHub Profile">
-            <i class="fab fa-github"></i> GitHub
+          <a href="https://github.com/RomainJazzar" target="_blank" class="contact-btn">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
           </a>
+        </div>
+
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> Marseille, Bouches-du-Rhône</p>
+          <p><i class="fas fa-graduation-cap"></i> La Plateforme - Bachelor IA</p>
         </div>
       </div>
-
-      <form id="contact-form">
-        <h3 data-lang="contactFormTitle">Ou envoyez-moi un message :</h3>
-        <div class="form-group">
-          <label for="name" data-lang="contactNameLabel">Nom</label>
-          <input type="text" id="name" name="name" required placeholder="Votre nom complet" />
-        </div>
-        <div class="form-group">
-          <label for="email" data-lang="contactEmailLabel">Email</label>
-          <input type="email" id="email" name="email" required placeholder="Votre adresse email" />
-        </div>
-        <div class="form-group">
-          <label for="message" data-lang="contactMessageLabel">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Votre message ici..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" data-lang="contactSubmitButton">
-          Envoyer (Simulation)
-        </button>
-      </form>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>
-      <span data-lang="footerMadeWith">Fait avec ❤️ en HTML/CSS/JS</span>
-    </p>
-    <p>
-      &copy; <span id="current-year">2025</span> Romain Jazzar. Tous droits
-      réservés.
-    </p>
+    <p data-lang="footerMadeWith"></p>
+    <p>&copy; <span id="current-year">2025</span> Romain Jazzar. Tous droits réservés.</p>
   </footer>
 
-  <!-- Floating Contact and Scroll-to-Top Buttons -->
-  <a href="#contact" id="floating-contact-btn" class="btn btn-primary" aria-label="Contact Me">
-    <i class="fas fa-envelope"></i>
-  </a>
-  <button id="scroll-to-top" title="Go to top" aria-label="Scroll to top">
+  <!-- Scroll to Top Button -->
+  <button id="scroll-to-top" aria-label="Retour en haut">
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <!-- Main JS -->
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ========== Variables ==========
+      const langToggle = document.getElementById('lang-toggle');
+      const themeToggle = document.getElementById('theme-toggle');
+      const scrollToTop = document.getElementById('scroll-to-top');
+      const typewriterText = document.getElementById('typewriter-text');
+      const currentYearSpan = document.getElementById('current-year');
+      const scrollIndicator = document.getElementById('scroll-indicator');
+      const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      const navLinksItems = document.querySelectorAll('.nav-links a');
+      const progressBars = document.querySelectorAll('.progress-bar');
+
+      let currentLang = 'fr';
+      let isDarkMode = localStorage.getItem('theme') === 'dark';
+
+      // ========== Translations ==========
+      const translations = {
+        'fr': {
+          navAbout: "À Propos",
+          navSkills: "Compétences",
+          navCertifications: "Certifications",
+          navProjects: "Projets",
+          navCV: "CV",
+          navContact: "Contact",
+          heroName: "Romain Jazzar",
+          heroTagline: "Passionné d'IA & Data | Analyste de Données Junior | Recherche alternance 24 mois",
+          heroSkillsPrefix: "Compétences clés :",
+          heroCvButton: "Télécharger le CV",
+          heroContactButton: "Me Contacter",
+          aboutTitle: "À Propos de Moi",
+          aboutP1: "Suite à une première expérience en développement web full-stack, je me réoriente passionnément vers l'Intelligence Artificielle et la Data Science. Actuellement en première année de Bachelor IA à La Plateforme Marseille, je développe des compétences solides en Python, SQL, analyse de données et machine learning.",
+          aboutP2: "Mon objectif est de fusionner ma logique de développeur avec la puissance de l'analyse de données pour construire des solutions intelligentes et contribuer à des projets ayant un impact réel.",
+          aboutQuote: "  Je crois au potentiel des données pour éclairer les décisions et transformer les processus. Mon ambition est de maîtriser ces outils pour devenir un acteur clé de cette transformation.  ",
+          aboutP3: "Je suis à la recherche active d'une <strong>alternance de 24 mois en IA ou Data</strong> (Analyst, Scientist, Engineer) à partir de <strong>Septembre 2025</strong> pour mettre en pratique mes connaissances et m'investir pleinement dans un environnement professionnel stimulant.",
+          skillsTitle: "Compétences Techniques",
+          skillsDataAiTitle: "Data & AI",
+          skillsWebDevTitle: "Web & Software Development",
+          certificationsTitle: "Certifications",
+          projectsTitle: "Projets Techniques",
+          cvTitle: "Mon CV",
+          cvDesc: "Consultez mon parcours détaillé et mes expériences. Vous pouvez prévisualiser le CV ci-dessous ou le télécharger directement.",
+          cvDownloadButton: "Télécharger le CV (PDF)",
+          contactTitle: "Contactez-moi",
+          contactIntro: "Je suis disponible pour discuter d'opportunités d'alternance en Data/BI/IA. N'hésitez pas à me contacter via l'un des moyens ci-dessous.",
+          footerMadeWith: ""
+        },
+        'en': {
+          navAbout: "About",
+          navSkills: "Skills",
+          navCertifications: "Certifications",
+          navProjects: "Projects",
+          navCV: "Resume",
+          navContact: "Contact",
+          heroName: "Romain Jazzar",
+          heroTagline: "AI & Data Enthusiast | Junior Data Analyst | Seeking 24-month work-study program",
+          heroSkillsPrefix: "Key skills:",
+          heroCvButton: "Download Resume",
+          heroContactButton: "Contact Me",
+          aboutTitle: "About Me",
+          aboutP1: "Following initial experience in full-stack web development, I am passionately pivoting towards Artificial Intelligence and Data Science. Currently in my first year of an AI Bachelor's degree at La Plateforme Marseille, I'm developing strong skills in Python, SQL, data analysis, and machine learning.",
+          aboutP2: "My goal is to merge my developer's logic with the power of data analysis to build intelligent solutions and contribute to projects with real-world impact.",
+          aboutQuote: "I believe in the potential of data to enlighten decisions and transform processes. My ambition is to master these tools to become a key player in this transformation.",
+          aboutP3: "I am actively seeking a <strong>24-month work-study program in AI or Data</strong> (Analyst, Scientist, Engineer) starting <strong>September 2025</strong> to apply my knowledge and fully engage in a stimulating professional environment.",
+          skillsTitle: "Technical Skills",
+          skillsDataAiTitle: "Data & AI",
+          skillsWebDevTitle: "Web & Software Development",
+          certificationsTitle: "Certifications",
+          projectsTitle: "Technical Projects",
+          cvTitle: "My Resume",
+          cvDesc: "Review my detailed background and experience. You can preview the resume below or download it directly.",
+          cvDownloadButton: "Download Resume (PDF)",
+          contactTitle: "Contact Me",
+          contactIntro: "I'm available to discuss Data/BI/AI work-study opportunities. Feel free to contact me through any of the means below.",
+          footerMadeWith: "Made with ❤️ using HTML/CSS/JS"
+        }
+      };
+
+      // ========== Typewriter Effect ==========
+      const keywords = [
+        "Python", "SQL", "Power BI", "Pandas", "NumPy",
+        "Machine Learning", "Data Visualization", "BigQuery",
+        "TensorFlow", "Scikit-learn", "Tableau", "ETL"
+      ];
+      let keywordIndex = 0;
+      let charIndex = 0;
+
+      function typeWriter() {
+        if (!typewriterText) return;
+        const currentKeyword = keywords[keywordIndex];
+
+        if (charIndex < currentKeyword.length) {
+          typewriterText.textContent += currentKeyword.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, 100);
+        } else {
+          setTimeout(() => {
+            typewriterText.textContent = '';
+            charIndex = 0;
+            keywordIndex = (keywordIndex + 1) % keywords.length;
+            typeWriter();
+          }, 2000);
+        }
+      }
+
+      // ========== Language Toggle ==========
+      function setLanguage(lang) {
+        currentLang = lang;
+        document.documentElement.setAttribute('lang', lang);
+
+        if (langToggle) {
+          langToggle.innerHTML = lang === 'fr' ? '<span>🇫🇷</span>' : '<span>🇬🇧</span>';
+        }
+
+        // Update all translatable elements
+        document.querySelectorAll('[data-lang]').forEach(element => {
+          const key = element.getAttribute('data-lang');
+          if (translations[lang] && translations[lang][key]) {
+            if (key === 'aboutP3') {
+              element.innerHTML = translations[lang][key];
+            } else {
+              element.textContent = translations[lang][key];
+            }
+          }
+        });
+      }
+
+      // ========== Theme Toggle ==========
+      function applyTheme(theme) {
+        isDarkMode = theme === 'dark';
+        if (isDarkMode) {
+          document.body.classList.add('dark-mode');
+          if (themeToggle) {
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+          }
+        } else {
+          document.body.classList.remove('dark-mode');
+          if (themeToggle) {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+          }
+        }
+        localStorage.setItem('theme', theme);
+      }
+
+      // ========== Scroll Progress Indicator ==========
+      function updateScrollIndicator() {
+        if (!scrollIndicator) return;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = (window.scrollY / totalHeight) * 100;
+        scrollIndicator.style.width = `${scrollPercentage}%`;
+      }
+
+      // ========== Progress Bars Animation ==========
+      function animateProgressBars() {
+        progressBars.forEach(bar => {
+          const rect = bar.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+          if (isVisible && !bar.classList.contains('animated')) {
+            const progress = bar.getAttribute('data-progress');
+            bar.style.width = `${progress}%`;
+            bar.classList.add('animated');
+          }
+        });
+      }
+
+      // ========== Scroll to Top ==========
+      function handleScrollToTop() {
+        const scrollY = window.scrollY;
+        if (scrollToTop) {
+          if (scrollY > 300) {
+            scrollToTop.classList.add('visible');
+          } else {
+            scrollToTop.classList.remove('visible');
+          }
+        }
+      }
+
+      // ========== Active Navigation Link ==========
+      function updateActiveNavLink() {
+        const sections = document.querySelectorAll('section');
+        const scrollY = window.scrollY;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.clientHeight;
+          const sectionId = section.getAttribute('id');
+
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            navLinksItems.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+
+      // ========== Mobile Navigation ==========
+      if (mobileNavToggle && navLinks) {
+        mobileNavToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          const icon = mobileNavToggle.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+          }
+        });
+
+        // Close mobile menu when link is clicked
+        navLinksItems.forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = mobileNavToggle.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          });
+        });
+      }
+
+      // ========== Event Listeners ==========
+      if (langToggle) {
+        langToggle.addEventListener('click', () => {
+          const newLang = currentLang === 'fr' ? 'en' : 'fr';
+          setLanguage(newLang);
+        });
+      }
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const newTheme = isDarkMode ? 'light' : 'dark';
+          applyTheme(newTheme);
+        });
+      }
+
+      if (scrollToTop) {
+        scrollToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      window.addEventListener('scroll', () => {
+        updateScrollIndicator();
+        handleScrollToTop();
+        updateActiveNavLink();
+        animateProgressBars();
+      });
+
+      // ========== Initialization ==========
+      if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+      }
+
+      // Apply saved theme or default
+      applyTheme(isDarkMode ? 'dark' : 'light');
+
+      // Set default language
+      setLanguage(currentLang);
+
+      // Start typewriter effect
+      if (typewriterText) {
+        setTimeout(typeWriter, 1500);
+      }
+
+      // Initial checks
+      animateProgressBars();
+      updateActiveNavLink();
+    });
+  </script>
 </body>
 
 </html>
